@@ -247,7 +247,7 @@ body a:hover {
 .wechat-qrcode {
   width: 200px;
   height: 300px;
-  background: url("") no-repeat;
+  background: url("/img/wechatcode.jpeg") no-repeat;
   background-size: 100%;
   position: absolute;
   right: -100px;
