@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
+  <link rel="icon" type="image/png" href="/img/avatar.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="author" content="Leon Huang">
+  <meta name="keywords" content="">
+  <title>ES6系统学习 ~ Leondon</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Leondon</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">主 页</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归 档</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分 类</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标 签</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关 于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('https://cdn.jsdelivr.net/gh/0x2e/static/blog/archive.jpg')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期三, 十二月 4日 2019, 4:03 下午
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    810 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      3 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h2 id="let-const"><a href="#let-const" class="headerlink" title="let const"></a>let const</h2><h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><pre><code class="js">    function test(){
+        for(let i=1;i&lt;3:i++){
+            console.log(i)
+        }
+
+        console.log(i)
+    }</code></pre>
+<p>以上代码显示1，2后将报未定义错误。</p>
+<pre><code class="js">    function test(){
+       let a=1;
+       let a=2;
+    }</code></pre>
+<p>以上代码将报错，因为a重复定义。</p>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>常量，不能够修改，且声明必须赋值。</p>
+<pre><code class="js">    function test(){
+     const PI = 3.1415926;
+     PI=8;
+    }</code></pre>
+<p>以上代码将报错，因为PI为const不能修改。</p>
+<pre><code class="js">    function test(){
+     const PI = 3.1415926;
+     const k={
+         a:1
+     }
+     k.b=3;
+     console.log(PI,k)
+    }</code></pre>
+<p>以上代码能正常执行，因为k为对象，对象为引用类型，k指向的指针不变，对象本身可以更改。</p>
+<pre><code>{
+    ...
+}</code></pre><p>称为代码的块作用域，作用域外无法作用于作用域内的变量。</p>
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><h3 id="什么是解构赋值"><a href="#什么是解构赋值" class="headerlink" title="什么是解构赋值"></a>什么是解构赋值</h3><p>语法上就是赋值，解构就是左边一个结构，右边一个结构，结构一一对应。</p>
+<h3 id="解构赋值的分类"><a href="#解构赋值的分类" class="headerlink" title="解构赋值的分类"></a>解构赋值的分类</h3><p><mark>数组解构赋值</mark>，<mark>对象解构赋值</mark>，字符串解构赋值，布尔值解构赋值，函数参数解构赋值，数值解构赋值。</p>
+<h3 id="数组解构赋值"><a href="#数组解构赋值" class="headerlink" title="数组解构赋值"></a>数组解构赋值</h3><pre><code class="js">{
+     let a,b,rest;
+    [a,b] = [1,2];
+    console.log(a,b)
+}</code></pre>
+<p>以上代码将输出1，2</p>
+<p>这是数组解构赋值，</p>
+<pre><code class="js">{
+     let a,b,rest;
+    [a,b,...rest] = [1,2,3,4,5,6];
+    console.log(a,b,rest)
+}</code></pre>
+<p>以上代码输出1 2 [3,4,5,6]</p>
+<p>…拓展运算符</p>
+<pre><code class="js">{
+     let a,b;
+    ({a,b}={a:1,b:2})
+    console.log(a,b)
+}</code></pre>
+<p>以上代码将输出1 2，成为对象解构赋值</p>
+<pre><code class="js">{
+     let a,b,rest;
+    [a,b,c] = [1,2];
+    console.log(a,b,c)
+}</code></pre>
+<p>以上将输出1 2 undefined，称为只声明，未赋值。</p>
+<pre><code class="js">{
+     let a,b,rest;
+    [a,b,c=3] = [1,2];
+    console.log(a,b,c)
+}</code></pre>
+<p>以上输出 1 2 3，给c设置默认值。</p>
+<pre><code class="js">{
+     let a,b,rest;
+    [a,b,c=3] = [1,2];
+    console.log(a,b,c)
+}</code></pre>
+<h4 id="数组解构赋值的示例"><a href="#数组解构赋值的示例" class="headerlink" title="数组解构赋值的示例"></a>数组解构赋值的示例</h4><pre><code class="js">{
+    let a=1;
+    let b=2;
+    [a,b]=[b,a]
+    console.log(a,b)
+}</code></pre>
+<p>变量交换，以上输出 2 1</p>
+<pre><code class="js">{
+   function f(){
+       return [1,2]
+   }
+   let a,b;
+   [a,b]=f();
+   console.log(a,b)
+}</code></pre>
+<p>以上结果输出1 2 </p>
+<pre><code class="js">{
+   function f(){
+       return [1,2,3,4,5]
+   }
+   let a,b,c;
+   [a,,,b]=f();
+   console.log(a,b)
+}</code></pre>
+<p>以上结果输出1 4,数组解构赋值的匹配模式，可以选择性的接收某些变量。</p>
+<pre><code class="js">{
+   function f(){
+       return [1,2,3,4,5]
+   }
+   let a,b,c;
+   [a,...b]=f();
+   console.log(a,b)
+}</code></pre>
+<p>以上结果输出 1 [2,3,4,5],用拓展运算符，赋值成一个数组。</p>
+<pre><code class="js">{
+   function f(){
+       return [1,2,3,4,5]
+   }
+   let a,b,c;
+   [a,,...b]=f();
+   console.log(a,b)
+}</code></pre>
+<p>以上结果输出 1 [3,4,5]</p>
+<h3 id="对象解构赋值"><a href="#对象解构赋值" class="headerlink" title="对象解构赋值"></a>对象解构赋值</h3><pre><code class="js">{
+   let o={p:42,q:true};
+   let {p,q}=o;
+   console.log(p,q)
+}</code></pre>
+<p>以上结果输出 42 true</p>
+<pre><code class="js">{
+   let {a=10,b=5}={a:3}
+   console.log(a,b)
+}</code></pre>
+<p>以上结果输出 3 5</p>
+<h4 id="对象解构赋值的示例"><a href="#对象解构赋值的示例" class="headerlink" title="对象解构赋值的示例"></a>对象解构赋值的示例</h4><pre><code class="js">{
+   let metaData={
+       title:&#39;abc&#39;,
+       test:[{
+        title:&#39;test&#39;,
+        desc:&#39;description&#39;
+       }]
+   }
+
+   let {title:esTitle,test:[{title:cnTitle}]}=metaData;
+   console.log(esTitle,cnTitle);
+}</code></pre>
+<p>以上结果输出 abc test</p>
+<h2 id="正则拓展"><a href="#正则拓展" class="headerlink" title="正则拓展"></a>正则拓展</h2><h3 id="正则新增特性"><a href="#正则新增特性" class="headerlink" title="正则新增特性"></a>正则新增特性</h3><table>
+<thead>
+<tr>
+<th>构造函数的变化</th>
+<th>正则方法的拓展</th>
+<th>ｕ修饰符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>y修饰符</td>
+<td>s修饰符</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><pre><code class="js">{
+//在ES5中
+ let regex = new RegExp(&#39;xyz&#39;,&#39;i&#39;);
+ let regex2 = new RegExp(/xyz/i);
+ console.log(regex.test(&#39;xyz123&#39;,regex2.test(&#39;xyz123&#39;)
+
+ let regex3 = new RegExp(/xyz/ig,&#39;i&#39;);
+ console.log(regex3.flags);
+}
+</code></pre>
+<p>以上输出 true true i</p>
+<p>ES6中，用regex3进行修饰，第二个参数将覆盖/xyz/ig的ig。</p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF">前端</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/ES6">ES6</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'a23ae30161224bbe35d4',
+      clientSecret: '4b9c218279f1db01d9ae8ceceac26fa485ca70c5',
+      repo: 'leonbeau.github.io',
+      owner: 'leonbeau',
+      admin: 'leonbeau',
+      id: md5(),
+      language: 'zh-CN',
+      perPage: 15,
+      pagerDirection: 'last',
+      createIssueManually: 'true',
+      distractionFreeMode: 'false'
+    });
+
+    gitalk.render('gitalk-container')
+  </script>
+
+
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <!-- <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br> -->
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+  <!-- 备案信息 -->
+  <a href="http://beian.miit.gov.cn/" target="_blank"
+     rel="nofollow noopener">陕ICP备17023759号</a>
+  
+
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "ES6系统学习&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>
