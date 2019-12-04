@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>React中Antd主题色更改</title>
+    <link href="undefined2019/12/04/React%E4%B8%ADAntd%E4%B8%BB%E9%A2%98%E8%89%B2%E6%9B%B4%E6%94%B9/"/>
+    <url>2019/12/04/React%E4%B8%ADAntd%E4%B8%BB%E9%A2%98%E8%89%B2%E6%9B%B4%E6%94%B9/</url>
+    
+    <content type="html"><![CDATA[<p>更改Antd默认的蓝色总共需要三个步骤</p><h1 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h1><p>安装插件</p><pre><code>//安装插件yarn add antd react-app-rewired customize-cra babel-plugin-import less less-loader</code></pre><h1 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h1><p>更改一下package.json文件，只需要将：</p><pre><code>&quot;scripts&quot;: {    &quot;start&quot;: &quot;react-scripts start&quot;,    &quot;build&quot;: &quot;react-scripts build&quot;,    &quot;test&quot;: &quot;react-scripts test&quot;,}</code></pre><p>更改为</p><pre><code>&quot;scripts&quot;: {    &quot;start&quot;: &quot;react-app-rewired start&quot;,    &quot;build&quot;: &quot;react-app-rewired build&quot;,    &quot;test&quot;: &quot;react-app-rewired test&quot;,}</code></pre><h1 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h1><p>在根目录下创建一个叫做config-overrides.js的文件，然后复制以下内容：</p><pre><code>const { override, fixBabelImports, addLessLoader } = require(&#39;customize-cra&#39;);module.exports = override(    //写了下面这个部分，就实现了按需加载，再也不需要再每个页面里面都引入“antd/dist/antd.css”啦    fixBabelImports(&#39;import&#39;, {      libraryName: &#39;antd&#39;,      libraryDirectory: &#39;es&#39;,      style: true  //这里一定要写true，css和less都不行哦    }),    addLessLoader({      javascriptEnabled: true,      //下面这行很特殊，这里是更改主题的关键，这里我只更改了主色，当然还可以更改其他的，下面会详细写出。      modifyVars: { &quot;@primary-color&quot;: &quot;#8cc7b5&quot;}    }))</code></pre><p>到此用yarn start启动项目就可以看到默认颜色变成了豆沙绿色</p><h1 id="其他变量"><a href="#其他变量" class="headerlink" title="其他变量"></a>其他变量</h1><h2 id="Ant-Design-的样式变量"><a href="#Ant-Design-的样式变量" class="headerlink" title="Ant Design 的样式变量"></a>Ant Design 的样式变量</h2><pre><code>@primary-color: #1890ff; // 全局主色@link-color: #1890ff; // 链接色@success-color: #52c41a; // 成功色@warning-color: #faad14; // 警告色@error-color: #f5222d; // 错误色@font-size-base: 14px; // 主字号@heading-color: rgba(0, 0, 0, 0.85); // 标题色@text-color: rgba(0, 0, 0, 0.65); // 主文本色@text-color-secondary : rgba(0, 0, 0, .45); // 次文本色@disabled-color : rgba(0, 0, 0, .25); // 失效色@border-radius-base: 4px; // 组件/浮层圆角@border-color-base: #d9d9d9; // 边框色@box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // 浮层阴影</code></pre><h2 id="所有变量"><a href="#所有变量" class="headerlink" title="所有变量"></a>所有变量</h2><p><a href="https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less" target="_blank" rel="noopener">https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less</a></p><h1 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h1><p><a href="https://ant.design/docs/react/customize-theme-cn#header" target="_blank" rel="noopener">https://ant.design/docs/react/customize-theme-cn#header</a><br><a href="https://ant.design/docs/react/use-with-create-react-app-cn" target="_blank" rel="noopener">https://ant.design/docs/react/use-with-create-react-app-cn</a><br><a href="https://www.jianshu.com/p/c15fb406db4c" target="_blank" rel="noopener">https://www.jianshu.com/p/c15fb406db4c</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>React Antd</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>ES6系统学习</title>
     <link href="undefined2019/12/04/ES6%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/"/>
     <url>2019/12/04/ES6%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/</url>
